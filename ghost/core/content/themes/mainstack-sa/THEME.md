@@ -1,6 +1,6 @@
 # mainstack-sa theme
 
-Ghost 5 theme for the Mainstack blog, styled from the **SA design system** (Degular + light canvas). Same layout features as `mainstack` (dual sticky navs, homepage featured/latest/CTA/categories, article TOC + newsletter + YMAL). Theme version is `0.1.2`.
+Ghost 5 theme for the Mainstack blog, styled from the **SA design system** (Degular + light canvas). Same layout features as `mainstack` (dual sticky navs, homepage featured/latest/CTA/categories, article TOC + newsletter + YMAL). Theme version is `0.1.3`.
 
 Installs as a **separate** theme named `mainstack-sa`. It does not replace `mainstack` until someone activates it in Ghost Admin → Design → Themes.
 
@@ -51,6 +51,10 @@ Weights and sizes in Ghost Admin (no theme edit):
 | Heading letter spacing | `heading_letter_spacing` | Tight (−0.03em), Normal (0) | Tight |
 
 Leave Brand → Typography on **Theme default** so Ghost does not replace Degular.
+
+## Footer
+
+`partials/site-footer.hbs` mirrors the [mainstack.com](https://mainstack.com/) marketing footer (dark brand chrome): company / products / support columns, socials (IG, X, LinkedIn, Facebook), WhatsApp + support email, four office addresses, © line, Techstars, and legal disclaimers. Destination URLs are the live mainstack.com / help.mainstack.co targets.
 
 ## Homepage / article
 
