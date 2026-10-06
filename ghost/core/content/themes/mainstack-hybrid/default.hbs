@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{!-- Document title. ghost_head does not print <title>. It does print
+         description, canonical, Open Graph, Twitter, JSON-LD, and the
+         site's code injection (including Google site verification). --}}
+    <title>{{meta_title}}</title>
+    <link rel="preload" href="{{asset "fonts/BaselGrotesk-Regular.woff2"}}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{asset "fonts/DegularDisplay-Bold.woff2"}}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
+    {{> "typography-vars"}}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    {{> "header"}}
+    <main id="main" class="site-main">
+        {{{body}}}
+    </main>
+    {{> "site-footer"}}
+    <script src="{{asset "js/nav.js"}}"></script>
+    {{{block "scripts"}}}
+    {{ghost_foot}}
+</body>
+</html>
