@@ -1,7 +1,7 @@
 {
     "name": "mainstack",
     "description": "Mainstack blog theme. Clean sans-serif shell for the Ghost 5 site.",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -20,6 +20,90 @@
         "posts_per_page": 12,
         "card_assets": true,
         "custom": {
+            "heading_font_weight": {
+                "type": "select",
+                "options": [
+                    "Light 300",
+                    "Regular 400",
+                    "Medium 500",
+                    "DemiBold 600",
+                    "Bold 700",
+                    "ExtraBold 800",
+                    "Black 900"
+                ],
+                "default": "Bold 700",
+                "description": "BDO Grotesk weight for H1 to H4, section titles, and card titles."
+            },
+            "body_font_weight": {
+                "type": "select",
+                "options": [
+                    "Light 300",
+                    "Regular 400",
+                    "Medium 500",
+                    "DemiBold 600",
+                    "Bold 700",
+                    "ExtraBold 800",
+                    "Black 900"
+                ],
+                "default": "Regular 400",
+                "description": "BDO Grotesk weight for paragraphs, excerpts, and meta text."
+            },
+            "nav_and_button_font_weight": {
+                "type": "select",
+                "options": [
+                    "Light 300",
+                    "Regular 400",
+                    "Medium 500",
+                    "DemiBold 600",
+                    "Bold 700",
+                    "ExtraBold 800",
+                    "Black 900"
+                ],
+                "default": "Bold 700",
+                "description": "BDO Grotesk weight for nav links, buttons, share links, and pager."
+            },
+            "display_h1_size": {
+                "type": "select",
+                "options": [
+                    "36px",
+                    "40px",
+                    "48px",
+                    "60px"
+                ],
+                "default": "48px",
+                "description": "Largest size of page H1s (homepage, tag, article). Scales down on phones."
+            },
+            "section_h2_size": {
+                "type": "select",
+                "options": [
+                    "20px",
+                    "22px",
+                    "24px",
+                    "28px",
+                    "32px"
+                ],
+                "default": "22px",
+                "description": "Size of section headings such as Latest, Announcements, Case Studies."
+            },
+            "body_font_size": {
+                "type": "select",
+                "options": [
+                    "16px",
+                    "17px",
+                    "18px"
+                ],
+                "default": "17px",
+                "description": "Base text size. Article body and headings inside it scale from this."
+            },
+            "heading_letter_spacing": {
+                "type": "select",
+                "options": [
+                    "Tight",
+                    "Normal"
+                ],
+                "default": "Tight",
+                "description": "Tight is -0.02em (current look). Normal is 0."
+            },
             "show_videos": {
                 "type": "boolean",
                 "default": false,

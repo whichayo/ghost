@@ -1,8 +1,12 @@
 /*
  * Mainstack blog shell.
  * Brand face is BDO Grotesk (Lokal Container Tipografi, SIL OFL 1.1), bundled in
- * assets/fonts (Light 300, Regular 400, Medium 500, Bold 700). Licence text is
+ * assets/fonts (all seven weights: Light 300, Regular 400, Medium 500,
+ * DemiBold 600, Bold 700, ExtraBold 800, Black 900). Licence text is
  * assets/fonts/BDOGrotesk-OFL.txt.
+ * Weights, sizes, and heading tracking come from the --ms-weight-*, --ms-size-*,
+ * and --ms-heading-tracking tokens below. partials/typography-vars.hbs
+ * overrides them from the Ghost Admin custom settings (Site-wide tab).
  * Tokens follow the marketing site: ink text, cool gray surfaces, violet accent.
  * Drop caps are intentionally omitted.
  */
@@ -33,8 +37,32 @@
 
 @font-face {
     font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-DemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BDO Grotesk";
     src: url("../fonts/BDOGrotesk-Bold.woff2") format("woff2");
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-Black.woff2") format("woff2");
+    font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
@@ -60,6 +88,14 @@
     --ms-product-text: #ffffff;
     --gh-font-heading: var(--ms-font-sans);
     --gh-font-body: var(--ms-font-sans);
+    /* Typography tokens. Defaults match 0.5.2; Ghost Admin settings override them. */
+    --ms-weight-heading: 700;
+    --ms-weight-body: 400;
+    --ms-weight-ui: 700;
+    --ms-size-display: 48px;
+    --ms-size-section: 22px;
+    --ms-size-body: 17px;
+    --ms-heading-tracking: -0.02em;
 }
 
 *,
@@ -78,7 +114,8 @@ body {
     background: var(--ms-bg);
     color: var(--ms-text);
     font-family: var(--gh-font-body);
-    font-size: 1.0625rem;
+    font-size: var(--ms-size-body);
+    font-weight: var(--ms-weight-body);
     line-height: 1.6;
 }
 
@@ -104,8 +141,16 @@ h4 {
     margin: 0 0 0.5rem;
     line-height: 1.2;
     font-family: var(--gh-font-heading);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: var(--ms-weight-heading);
+    letter-spacing: var(--ms-heading-tracking);
+}
+
+/*
+ * Migrated posts wrap many headings in <strong>. Without this, "bolder"
+ * pushes them to Black 900 and they ignore the heading weight setting.
+ */
+:is(h1, h2, h3, h4, h5, h6) :is(strong, b) {
+    font-weight: inherit;
 }
 
 p {
@@ -206,7 +251,7 @@ p {
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
     font-size: 0.875rem;
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     line-height: 1;
     letter-spacing: -0.01em;
     text-decoration: none;
@@ -247,7 +292,7 @@ p {
 .ms-blog-links a {
     color: var(--ms-text);
     font-size: 0.8125rem;
-    font-weight: 600;
+    font-weight: var(--ms-weight-ui);
     line-height: 1.2;
     text-decoration: none;
     white-space: nowrap;
@@ -303,7 +348,7 @@ p {
     color: var(--ms-text);
     font: inherit;
     font-size: 0.8125rem;
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     cursor: pointer;
 }
 
@@ -381,7 +426,7 @@ p {
 .archive-header h1,
 .article-header h1,
 .error-page h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(calc(var(--ms-size-display) * 2 / 3), 4vw, var(--ms-size-display));
 }
 
 .home-intro h1 {
@@ -465,7 +510,7 @@ p {
 }
 
 .section-title {
-    font-size: 1.35rem;
+    font-size: var(--ms-size-section);
     margin-bottom: 1rem;
 }
 
@@ -616,7 +661,7 @@ p {
     border-radius: 999px;
     background: var(--ms-accent);
     color: var(--ms-accent-contrast);
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     text-decoration: none;
 }
 
@@ -657,7 +702,7 @@ p {
 .toc-title {
     margin: 0 0 0.4rem;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--ms-text-muted);
@@ -742,7 +787,7 @@ p {
     background: var(--ms-accent);
     color: var(--ms-accent-contrast);
     font: inherit;
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     cursor: pointer;
 }
 
@@ -771,7 +816,7 @@ p {
     color: var(--ms-text);
     font: inherit;
     font-size: 0.8125rem;
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
     text-decoration: none;
     cursor: pointer;
 }
@@ -913,7 +958,7 @@ p {
 
 .pagination a {
     color: var(--ms-text);
-    font-weight: 700;
+    font-weight: var(--ms-weight-ui);
 }
 
 .pagination-status {
@@ -933,7 +978,7 @@ p {
 
 .site-footer-title {
     margin: 0 0 0.35rem;
-    font-weight: 700;
+    font-weight: var(--ms-weight-heading);
 }
 
 .site-footer-inner {
