@@ -1,6 +1,28 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. Homepage is a post list. A post is a single article. Featured posts, article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, and featured posts, then the post list. A post is a single article. Article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+
+## Homepage
+
+The H1 and subtext are written in `index.hbs`. They do not follow the Ghost site title or description (those still feed the document head and the footer).
+
+- H1: The Mainstack Blog
+- Subtext: Guides, Conversations with Creators, Tools, Templates and everything else in between to help you monetize your knowledge.
+
+`partials/featured.hbs` loads published posts with `{{#get "posts" filter="featured:true"}}` (the same set as the `#featured` filter). The section is left out when no post is featured. It shows at most six, newest published first.
+
+Each card is the feature image, then the title, author, and date. That text is not painted on top of the image, and the card has no excerpt. One column under 720px, two columns from there, three from 1020px. A single featured post spans the row. Two featured posts share it.
+
+### Feature a post
+
+No theme edit and no zip upload. In Ghost Admin:
+
+1. Open **Posts** and edit the post.
+2. Open post settings (the gear icon in the editor).
+3. Turn on **Feature this post**.
+4. Update or publish the post.
+
+Reload the homepage and the post is in Featured. Turn the toggle off to remove it.
 
 ## Navigation
 

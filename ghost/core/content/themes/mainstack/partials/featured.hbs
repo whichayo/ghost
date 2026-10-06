@@ -1,6 +1,34 @@
 {{!--
-    TODO(MSC): Featured articles for major announcements and pillar posts.
-    Selection has to be manual, not "whatever is newest".
-    Card layout is image with title and meta on the card only — do not repeat
-    that text in a separate block above the card.
+    Featured posts for announcements and pillar posts.
+    In Ghost Admin, open the post, then the settings (gear) panel, and
+    turn on "Feature this post". That sets featured:true. This query is
+    the same filter as #featured. No slug is hardcoded. The section is
+    omitted when nothing is featured. At most six posts, newest published
+    first. Each card is the image, then the title, author, and date.
+    That text is not repeated on top of the image.
 --}}
+{{#get "posts" filter="featured:true" limit="6" include="authors" order="published_at desc" as |featured|}}
+    {{#match featured.length ">" 0}}
+    <section class="featured-posts" aria-labelledby="featured-heading">
+        <h2 id="featured-heading" class="section-title">Featured</h2>
+        <div class="featured-feed">
+            {{#foreach featured}}
+            <article class="post-card featured-card {{post_class}}">
+                <a class="post-card-media" href="{{url}}"{{#unless feature_image}} aria-label="{{title}}"{{/unless}}>
+                    {{#if feature_image}}
+                        <img src="{{img_url feature_image size="l"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+                    {{/if}}
+                </a>
+                <div class="post-card-body">
+                    <h3 class="post-card-title"><a href="{{url}}">{{title}}</a></h3>
+                    <p class="post-card-meta">
+                        <span class="featured-card-authors">{{authors separator=", "}}</span>
+                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+                    </p>
+                </div>
+            </article>
+            {{/foreach}}
+        </div>
+    </section>
+    {{/match}}
+{{/get}}
