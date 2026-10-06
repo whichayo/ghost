@@ -93,6 +93,10 @@ typings/
 /ghost/core/content/settings/*
 /ghost/core/content/apps/**/*
 /ghost/core/content/themes/**/*
+# mainstack is the in-repo blog theme. Casper and Source stay submodules.
+!/ghost/core/content/themes/mainstack/
+!/ghost/core/content/themes/mainstack/**
+/ghost/core/content/themes/mainstack/dist/
 /ghost/core/content/images/**/*
 /ghost/core/content/media/**/*
 /ghost/core/content/files/**/*
