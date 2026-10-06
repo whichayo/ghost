@@ -1,6 +1,10 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, a product-signup CTA, then Announcements and Case Studies. Videos and Webinars is built and hidden. A post has a sticky table of contents, a newsletter with horizontal socials, and You May Also Like. Theme version is `0.5.0`.
+Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, a product-signup CTA, then Announcements and Case Studies. Videos and Webinars is built and hidden. A post has a sticky table of contents, a newsletter with horizontal socials, and You May Also Like. Theme version is `0.5.1`.
+
+## Typography
+
+All UI text uses Basel Grotesk from `assets/fonts/` (Light 300, Regular 400, Medium 500, Bold 700, woff2). The `@font-face` rules are at the top of `assets/css/screen.css`, and `--ms-font-sans` feeds `--gh-font-body` and `--gh-font-heading`. `default.hbs` preloads Regular and Bold. Code blocks keep the monospace stack. The bundled files are the Basel Grotesk Trial cut: they cover A–Z, a–z, 0–9 and `' , - .` only, so other punctuation (`: ? ! ( ) & @ %` and so on) renders in the Helvetica/Arial fallback. Swap in the licensed full files under the same names when available.
 
 ## Homepage
 
@@ -96,7 +100,7 @@ Some migrated posts store a short custom meta title. `og:title` and the document
 
 ## QA checklist
 
-Run this after the `0.5.0` zip is activated on Railway. Desktop is about 1280px wide. Mobile is about 390px wide.
+Run this after the `0.5.1` zip is activated on Railway. Desktop is about 1280px wide. Mobile is about 390px wide.
 
 Homepage, desktop and mobile:
 
