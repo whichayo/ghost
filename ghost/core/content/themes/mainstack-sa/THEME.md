@@ -1,6 +1,6 @@
 # mainstack-sa theme
 
-Ghost 5 theme for the Mainstack blog, styled from the **SA design system** (Degular + light canvas). Same layout features as `mainstack` (dual sticky navs, homepage featured/latest/CTA/categories, article TOC + newsletter + YMAL). Theme version is `0.1.3`.
+Ghost 5 theme for the Mainstack blog, styled from the **SA design system** (Degular + light canvas). Same layout features as `mainstack` (dual sticky navs, homepage featured/latest/CTA/categories, article TOC + newsletter + YMAL). Theme version is `0.1.4`.
 
 Installs as a **separate** theme named `mainstack-sa`. It does not replace `mainstack` until someone activates it in Ghost Admin → Design → Themes.
 
