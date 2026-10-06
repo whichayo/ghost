@@ -1,45 +1,46 @@
 /*
  * Mainstack blog shell.
- * Brand face is Basel Grotesk, bundled in assets/fonts (Light 300, Regular 400,
- * Medium 500, Bold 700). Missing glyphs fall back to the system sans below.
+ * Brand face is BDO Grotesk (Lokal Container Tipografi, SIL OFL 1.1), bundled in
+ * assets/fonts (Light 300, Regular 400, Medium 500, Bold 700). Licence text is
+ * assets/fonts/BDOGrotesk-OFL.txt.
  * Tokens follow the marketing site: ink text, cool gray surfaces, violet accent.
  * Drop caps are intentionally omitted.
  */
 
 @font-face {
-    font-family: "Basel Grotesk";
-    src: url("../fonts/BaselGrotesk-Light.woff2") format("woff2");
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Basel Grotesk";
-    src: url("../fonts/BaselGrotesk-Regular.woff2") format("woff2");
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Basel Grotesk";
-    src: url("../fonts/BaselGrotesk-Medium.woff2") format("woff2");
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Basel Grotesk";
-    src: url("../fonts/BaselGrotesk-Bold.woff2") format("woff2");
+    font-family: "BDO Grotesk";
+    src: url("../fonts/BDOGrotesk-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
 :root {
-    --ms-font-sans: "Basel Grotesk", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    --ms-font-sans: "BDO Grotesk", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
     --ms-font-mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
     --ms-text: #131316;
     --ms-text-muted: #56616b;
