@@ -484,12 +484,16 @@ p {
 
 .post-card-media {
     display: block;
+    position: relative;
     flex-shrink: 0;
     background: var(--ms-surface);
     aspect-ratio: 16 / 9;
+    overflow: hidden;
 }
 
 .post-card-media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;

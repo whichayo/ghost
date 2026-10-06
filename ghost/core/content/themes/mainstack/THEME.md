@@ -26,7 +26,7 @@ Reload the homepage and the post is in Featured. Turn the toggle off to remove i
 
 ## Latest posts
 
-On the homepage the next section is an H2, `Latest`, then the channel post list (`posts_per_page` is 12). Cards use one grid: one column under 720px, two columns from there, three from 1020px. Each card stretches to the row height and the author and date sit on the bottom edge, so the gap between rows stays even when titles and excerpts wrap to different lengths.
+On the homepage the next section is an H2, `Latest`, then the channel post list (`posts_per_page` is 12). Cards use one grid: one column under 720px, two columns from there, three from 1020px. Feature images are cropped to 16:9, so a tall source file does not stretch its row. Each card stretches to the row height and the author and date sit on the bottom edge, so the gap between rows stays even when titles and excerpts wrap to different lengths.
 
 Under 720px the excerpt is hidden. The title, author, and date stay.
 
