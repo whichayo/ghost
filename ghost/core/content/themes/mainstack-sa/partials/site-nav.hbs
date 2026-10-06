@@ -1,0 +1,18 @@
+{{!--
+    Primary Mainstack product bar. Dark chrome, separate from the blog bar.
+    Login: https://mainstack.com/login (301s to accounts.mainstack.com and keeps the query string).
+    Get started: https://accounts.mainstack.com/signup.
+    https://mainstack.com/signup returns 404, so the button uses the live auth host.
+    UTM: source MainstackBlog, medium Menu, campaign BlogHeader.
+--}}
+<header class="ms-product-nav" aria-label="Mainstack">
+    <div class="ms-nav-inner">
+        <a class="ms-product-logo" href="https://mainstack.com">
+            <img src="{{asset "images/mainstack-wordmark.svg"}}" alt="Mainstack" width="131" height="20">
+        </a>
+        <div class="ms-product-actions">
+            <a class="ms-product-login" href="https://mainstack.com/login?utm_source=MainstackBlog&utm_medium=Menu&utm_campaign=BlogHeader">Login</a>
+            <a class="ms-product-signup" href="https://accounts.mainstack.com/signup?utm_source=MainstackBlog&utm_medium=Menu&utm_campaign=BlogHeader">Get started</a>
+        </div>
+    </div>
+</header>
