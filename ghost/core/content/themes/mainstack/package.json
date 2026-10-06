@@ -1,7 +1,7 @@
 {
     "name": "mainstack",
     "description": "Mainstack blog theme. Clean sans-serif shell for the Ghost 5 site.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "engines": {
         "ghost": ">=5.0.0"
     },

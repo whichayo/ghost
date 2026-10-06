@@ -1,6 +1,26 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. Homepage is a post list. A post is a single article. Featured posts, the two sticky navs, article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+Ghost 5 theme shell for the Mainstack blog. Homepage is a post list. A post is a single article. Featured posts, article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+
+## Navigation
+
+`default.hbs` loads two sticky bars from `partials/header.hbs`.
+
+The top bar is the Mainstack product chrome (dark). The wordmark goes to https://mainstack.com. Login and Get started carry `utm_source=MainstackBlog&utm_medium=Menu&utm_campaign=BlogHeader`.
+
+- Login: `https://mainstack.com/login?utm_source=MainstackBlog&utm_medium=Menu&utm_campaign=BlogHeader`
+- Get started: `https://accounts.mainstack.com/signup?utm_source=MainstackBlog&utm_medium=Menu&utm_campaign=BlogHeader`
+
+`https://mainstack.com/signup` returns 404. The signup button uses the live auth host, which keeps the UTM query string.
+
+The blog bar sits under the product bar and stays visible with it (`--ms-sticky-nav-offset` is both heights, and `scroll-padding-top` uses that so anchors clear the bars). Blog Home points at `{{@site.url}}`. The other links are tag archives that are not created yet:
+
+- Tools and Templates → `/tag/tools-and-templates/`
+- Case Studies → `/tag/case-studies/`
+- Comparisons → `/tag/comparisons/`
+- Videos → `/tag/videos/`
+
+Mainstack University has no public section (`/university` 404s), so that item links to https://mainstack.com until a real URL exists. Desktop shows the links inline. The hamburger is mobile only (under 800px). Search is the Ghost `{{search}}` button, which `{{ghost_head}}` wires up. There is no dark-mode toggle in this theme.
 
 Theme directory: `ghost/core/content/themes/mainstack`.
 
