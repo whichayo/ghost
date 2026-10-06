@@ -1,0 +1,19 @@
+{{!--
+    You May Also Like. Posts that share this post's primary tag,
+    excluding the post itself. Replaces previous/next links.
+    Omitted when the post has no primary tag or no other posts use it.
+--}}
+{{#if primary_tag.slug}}
+{{#get "posts" filter="tag:{{primary_tag.slug}}+id:-{{id}}" limit="3" include="authors" order="published_at desc" as |related|}}
+    {{#match related.length ">" 0}}
+    <section class="post-list related-posts" aria-labelledby="related-heading">
+        <h2 id="related-heading" class="section-title">You May Also Like</h2>
+        <div class="post-feed">
+            {{#foreach related}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </section>
+    {{/match}}
+{{/get}}
+{{/if}}

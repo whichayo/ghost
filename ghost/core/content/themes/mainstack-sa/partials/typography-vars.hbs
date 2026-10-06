@@ -1,0 +1,24 @@
+{{!--
+    Typography settings from Ghost Admin → Settings → Design & branding →
+    Customize → Site-wide. Each value overrides the matching :root default
+    in assets/css/screen.css. Weight options end in their numeric value
+    ("Display Bold 700", "Medium 500"). Tight tracking is SA -0.03em.
+--}}
+<style id="ms-typography-settings">
+:root {
+{{#if @custom.heading_font_weight}}    --ms-weight-heading: {{> "font-weight-value" value=@custom.heading_font_weight}};
+{{/if}}
+{{#if @custom.body_font_weight}}    --ms-weight-body: {{> "font-weight-value" value=@custom.body_font_weight}};
+{{/if}}
+{{#if @custom.nav_and_button_font_weight}}    --ms-weight-ui: {{> "font-weight-value" value=@custom.nav_and_button_font_weight}};
+{{/if}}
+{{#if @custom.display_h1_size}}    --ms-size-display: {{@custom.display_h1_size}};
+{{/if}}
+{{#if @custom.section_h2_size}}    --ms-size-section: {{@custom.section_h2_size}};
+{{/if}}
+{{#if @custom.body_font_size}}    --ms-size-body: {{@custom.body_font_size}};
+{{/if}}
+{{#if @custom.heading_letter_spacing}}    --ms-heading-tracking: {{#match @custom.heading_letter_spacing "Normal"}}0{{else}}-0.03em{{/match}};
+{{/if}}
+}
+</style>

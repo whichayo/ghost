@@ -1,0 +1,106 @@
+{
+    "name": "mainstack-sa",
+    "description": "Mainstack blog theme using the SA design system (Degular + light canvas).",
+    "version": "0.1.0",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "UNLICENSED",
+    "author": {
+        "name": "Mainstack",
+        "email": "hello@mainstack.com",
+        "url": "https://mainstack.com"
+    },
+    "keywords": [
+        "ghost",
+        "ghost-theme",
+        "mainstack",
+        "mainstack-sa"
+    ],
+    "config": {
+        "posts_per_page": 12,
+        "card_assets": true,
+        "custom": {
+            "heading_font_weight": {
+                "type": "select",
+                "options": [
+                    "Display Semibold 600",
+                    "Display Bold 700"
+                ],
+                "default": "Display Bold 700",
+                "description": "Degular Display weight for H1 to H4 and article headings."
+            },
+            "body_font_weight": {
+                "type": "select",
+                "options": [
+                    "Medium 500",
+                    "Semibold 600",
+                    "Bold 700"
+                ],
+                "default": "Medium 500",
+                "description": "Degular weight for paragraphs, excerpts, and meta text. No Regular 400 in SA."
+            },
+            "nav_and_button_font_weight": {
+                "type": "select",
+                "options": [
+                    "Medium 500",
+                    "Semibold 600",
+                    "Bold 700"
+                ],
+                "default": "Semibold 600",
+                "description": "Degular weight for nav links, buttons, share links, and pager."
+            },
+            "display_h1_size": {
+                "type": "select",
+                "options": [
+                    "40px",
+                    "48px",
+                    "52px",
+                    "60px"
+                ],
+                "default": "52px",
+                "description": "Largest size of page H1s (homepage, tag, article). Scales down on phones toward 40px."
+            },
+            "section_h2_size": {
+                "type": "select",
+                "options": [
+                    "20px",
+                    "22px",
+                    "24px",
+                    "28px",
+                    "32px"
+                ],
+                "default": "22px",
+                "description": "Size of section headings such as Latest, Announcements, Case Studies."
+            },
+            "body_font_size": {
+                "type": "select",
+                "options": [
+                    "15px",
+                    "17px",
+                    "18px"
+                ],
+                "default": "17px",
+                "description": "Base text size. Article body and headings inside it scale from this."
+            },
+            "heading_letter_spacing": {
+                "type": "select",
+                "options": [
+                    "Tight",
+                    "Normal"
+                ],
+                "default": "Tight",
+                "description": "Tight is -0.03em (SA display tracking). Normal is 0."
+            },
+            "show_videos": {
+                "type": "boolean",
+                "default": false,
+                "group": "homepage",
+                "description": "Show the homepage Videos and Webinars section. Leave off until YouTube longform is ready."
+            }
+        }
+    },
+    "scripts": {
+        "zip": "python3 zip-theme.py"
+    }
+}

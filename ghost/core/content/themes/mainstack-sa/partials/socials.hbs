@@ -1,0 +1,13 @@
+{{!--
+    Horizontal actions under the newsletter. This is the only share row.
+    Facebook and X use the Ghost site handles, with Mainstack's public
+    accounts as the fallback. Instagram is not a Ghost setting.
+    Copy link is handled in assets/js/article.js.
+--}}
+<nav class="article-socials" aria-label="Share this article">
+    <a href="https://www.facebook.com/{{#if @site.facebook}}{{@site.facebook}}{{else}}themainstack{{/if}}" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a href="https://x.com/{{#if @site.twitter}}{{@site.twitter}}{{else}}themainstack{{/if}}" target="_blank" rel="noopener noreferrer">X</a>
+    <a href="https://www.instagram.com/themainstack/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <button type="button" data-copy-link>Copy link</button>
+    <span class="article-socials-status" data-copy-status role="status"></span>
+</nav>

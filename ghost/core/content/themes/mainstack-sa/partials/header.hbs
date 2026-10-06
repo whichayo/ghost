@@ -1,0 +1,11 @@
+{{!--
+    Two sticky bars. .site-chrome uses display:contents so each bar's
+    sticky containing block is the page, not a short header wrapper.
+    Heights live in --ms-product-nav-height and --ms-blog-nav-height.
+    --ms-sticky-nav-offset is their sum, used as scroll-padding so in-page
+    anchors clear both bars.
+--}}
+<div class="site-chrome">
+    {{> "site-nav"}}
+    {{> "blog-nav"}}
+</div>

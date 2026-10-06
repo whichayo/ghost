@@ -1,0 +1,13 @@
+<footer class="site-footer">
+    <div class="site-footer-inner">
+        <p class="site-footer-title">{{@site.title}}</p>
+        {{#if @site.description}}
+            <p class="site-footer-text">{{@site.description}}</p>
+        {{/if}}
+        <nav class="site-footer-nav" aria-label="Footer">
+            {{#foreach secondary_navigation}}
+                <a href="{{url absolute="true"}}">{{label}}</a>
+            {{/foreach}}
+        </nav>
+    </div>
+</footer>

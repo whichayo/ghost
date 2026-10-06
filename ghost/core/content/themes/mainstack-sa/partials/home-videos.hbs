@@ -1,0 +1,22 @@
+{{!--
+    Videos and Webinars. Same cards as Latest (image, title, excerpt).
+    Hidden unless Design → Show videos and webinars is on
+    (@custom.show_videos, default false). Posts must use the public tag
+    slug "videos". The section is omitted when that tag has no posts.
+--}}
+{{#if @custom.show_videos}}
+{{#get "posts" filter="tag:videos" limit="6" include="authors" order="published_at desc" as |videoPosts|}}
+    {{#match videoPosts.length ">" 0}}
+    <section class="post-list home-videos" aria-labelledby="videos-heading">
+        <h2 id="videos-heading" class="section-title">
+            <a href="{{@site.url}}/tag/videos/">Videos and Webinars</a>
+        </h2>
+        <div class="post-feed">
+            {{#foreach videoPosts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </section>
+    {{/match}}
+{{/get}}
+{{/if}}
