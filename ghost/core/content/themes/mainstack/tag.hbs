@@ -1,0 +1,14 @@
+{{!< default}}
+
+{{#tag}}
+<header class="archive-header">
+    <h1>{{name}}</h1>
+    {{#if description}}
+        <p>{{description}}</p>
+    {{/if}}
+</header>
+{{/tag}}
+
+<section class="post-list" aria-label="Posts in {{tag.name}}">
+    {{> "post-feed"}}
+</section>

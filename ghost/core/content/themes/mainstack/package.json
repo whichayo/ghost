@@ -1,0 +1,26 @@
+{
+    "name": "mainstack",
+    "description": "Mainstack blog theme. Clean sans-serif shell for the Ghost 5 site.",
+    "version": "0.1.0",
+    "engines": {
+        "ghost": ">=5.0.0"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Mainstack",
+        "email": "hello@mainstack.com",
+        "url": "https://mainstack.com"
+    },
+    "keywords": [
+        "ghost",
+        "ghost-theme",
+        "mainstack"
+    ],
+    "config": {
+        "posts_per_page": 12,
+        "card_assets": true
+    },
+    "scripts": {
+        "zip": "python3 zip-theme.py"
+    }
+}

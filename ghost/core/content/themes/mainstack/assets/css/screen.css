@@ -1,0 +1,365 @@
+/*
+ * Mainstack blog shell.
+ * Brand face is Degular Display. It is not bundled here; the stack below
+ * uses it when the family is available and otherwise a clean system sans.
+ * Tokens follow the marketing site: ink text, cool gray surfaces, violet accent.
+ * Drop caps are intentionally omitted.
+ */
+
+:root {
+    --ms-font-sans: "Degular Display", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --ms-font-mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+    --ms-text: #131316;
+    --ms-text-muted: #56616b;
+    --ms-bg: #ffffff;
+    --ms-surface: #eff1f6;
+    --ms-border: #dbdee5;
+    --ms-accent: #8833ff;
+    --ms-accent-contrast: #ffffff;
+    --ms-max: 1080px;
+    --ms-article: 720px;
+    --ms-space: 1.25rem;
+    --ms-radius: 12px;
+    --gh-font-heading: var(--ms-font-sans);
+    --gh-font-body: var(--ms-font-sans);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--ms-bg);
+    color: var(--ms-text);
+    font-family: var(--gh-font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--ms-accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+    font-family: var(--gh-font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    background: var(--ms-text);
+    color: var(--ms-bg);
+    padding: 0.4rem 0.7rem;
+    z-index: 10;
+}
+
+.skip-link:focus {
+    top: 0.5rem;
+}
+
+.site-header {
+    border-bottom: 1px solid var(--ms-border);
+    background: var(--ms-bg);
+}
+
+.site-header-inner,
+.site-footer-inner,
+.home-intro,
+.post-list,
+.archive-header,
+.error-page {
+    width: min(var(--ms-max), calc(100% - 2 * var(--ms-space)));
+    margin-inline: auto;
+}
+
+.site-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    min-height: 4rem;
+    padding-block: 0.75rem;
+}
+
+.site-logo {
+    color: var(--ms-text);
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.03em;
+}
+
+.site-nav,
+.site-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+
+.site-nav {
+    margin-left: auto;
+}
+
+.site-nav a,
+.site-footer-nav a {
+    color: var(--ms-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.site-nav a.is-current {
+    color: var(--ms-accent);
+}
+
+.site-main {
+    padding-block: 2.5rem 3.5rem;
+}
+
+.home-intro h1,
+.archive-header h1,
+.article-header h1,
+.error-page h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.home-intro-text,
+.archive-header p,
+.article-meta,
+.post-card-meta,
+.site-footer-text {
+    color: var(--ms-text-muted);
+}
+
+.section-title {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.post-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+    .post-feed {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--ms-border);
+    border-radius: var(--ms-radius);
+    background: var(--ms-bg);
+    overflow: hidden;
+}
+
+.post-card-media {
+    display: block;
+    background: var(--ms-surface);
+    aspect-ratio: 16 / 9;
+}
+
+.post-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-card-body {
+    padding: 1rem 1.1rem 1.15rem;
+}
+
+.post-card-title {
+    font-size: 1.15rem;
+}
+
+.post-card-title a {
+    color: var(--ms-text);
+    text-decoration: none;
+}
+
+.post-card-title a:hover {
+    color: var(--ms-accent);
+}
+
+.post-card-excerpt {
+    color: var(--ms-text-muted);
+    font-size: 0.98rem;
+}
+
+.post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.post-card-meta a {
+    color: inherit;
+}
+
+.archive-header,
+.home-intro {
+    margin-bottom: 2rem;
+}
+
+.archive-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 999px;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+}
+
+.article {
+    width: min(var(--ms-article), calc(100% - 2 * var(--ms-space)));
+    margin-inline: auto;
+}
+
+.article-header {
+    margin-bottom: 1.5rem;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.article-meta a {
+    color: inherit;
+}
+
+.article-image {
+    margin: 0 0 1.75rem;
+}
+
+.article-image figcaption {
+    margin-top: 0.5rem;
+    color: var(--ms-text-muted);
+    font-size: 0.875rem;
+}
+
+.gh-content > *:first-child {
+    margin-top: 0;
+}
+
+.gh-content h2,
+.gh-content h3 {
+    margin-top: 2rem;
+}
+
+.gh-content img,
+.gh-content video {
+    border-radius: var(--ms-radius);
+}
+
+.gh-content .kg-width-wide,
+.gh-content .kg-width-full {
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.gh-content .kg-width-wide {
+    width: min(var(--ms-max), calc(100vw - 2 * var(--ms-space)));
+}
+
+.gh-content .kg-width-full {
+    width: 100vw;
+}
+
+.gh-content .kg-width-wide img,
+.gh-content .kg-width-full img {
+    width: 100%;
+}
+
+.gh-content pre {
+    overflow: auto;
+    padding: 1rem;
+    background: var(--ms-surface);
+    border-radius: var(--ms-radius);
+    font-family: var(--ms-font-mono);
+    font-size: 0.9rem;
+}
+
+.gh-content blockquote {
+    margin-inline: 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--ms-accent);
+    color: var(--ms-text-muted);
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 2rem;
+    grid-column: 1 / -1;
+}
+
+.pagination a {
+    color: var(--ms-text);
+    font-weight: 700;
+}
+
+.pagination-status {
+    color: var(--ms-text-muted);
+    font-size: 0.9rem;
+}
+
+.error-page {
+    padding-block: 3rem;
+}
+
+.site-footer {
+    border-top: 1px solid var(--ms-border);
+    background: var(--ms-surface);
+    padding-block: 2rem;
+}
+
+.site-footer-title {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+}
+
+.site-footer-inner {
+    display: grid;
+    gap: 0.75rem;
+}
