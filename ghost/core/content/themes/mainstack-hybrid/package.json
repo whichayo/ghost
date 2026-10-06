@@ -1,7 +1,7 @@
 {
     "name": "mainstack-hybrid",
     "description": "Mainstack blog theme: Degular Display headings + Basel Grotesk body (SA layout/colors).",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "engines": {
         "ghost": ">=5.0.0"
     },

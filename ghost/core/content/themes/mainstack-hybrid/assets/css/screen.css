@@ -936,14 +936,14 @@ p {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 240px;
+    max-height: 290px;
     object-fit: cover;
     object-position: center;
 }
 
 @media (min-width: 768px) {
     .article-image img {
-        max-height: 400px;
+        max-height: 500px;
     }
 }
 

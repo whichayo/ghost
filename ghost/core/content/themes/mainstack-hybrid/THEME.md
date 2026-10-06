@@ -5,7 +5,7 @@ Ghost 5 theme for the Mainstack blog. Same SA layout/colors as `mainstack-sa` 0.
 - **Headings:** Degular Display (Semibold + Bold)
 - **Body / nav / meta:** Basel Grotesk (Light / Regular / Medium / Bold)
 
-Theme version is `0.1.0`. Installs as a **separate** theme named `mainstack-hybrid`. It does not replace `mainstack-sa` or `mainstack` until someone activates it.
+Theme version is `0.1.1`. Installs as a **separate** theme named `mainstack-hybrid`. It does not replace `mainstack-sa` or `mainstack` until someone activates it.
 
 ## License — fonts
 
@@ -63,7 +63,7 @@ Leave Brand → Typography on **Theme default** so Ghost does not replace these 
 
 ## Footer / nav / article
 
-Same as `mainstack-sa` 0.1.3: mainstack.com footer, Tools → `/tag/free-tools/`, Templates → `/tag/free-templates/`, article cover max-height ~400px, padded TOC card.
+Same as `mainstack-sa` 0.1.3: mainstack.com footer, Tools → `/tag/free-tools/`, Templates → `/tag/free-templates/`, article cover max-height ~500px desktop / ~290px mobile, padded TOC card.
 
 ## Build / upload
 
