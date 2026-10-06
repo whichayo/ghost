@@ -1,7 +1,7 @@
 {
     "name": "mainstack",
     "description": "Mainstack blog theme. Clean sans-serif shell for the Ghost 5 site.",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -26,13 +26,10 @@
                     "Light 300",
                     "Regular 400",
                     "Medium 500",
-                    "DemiBold 600",
-                    "Bold 700",
-                    "ExtraBold 800",
-                    "Black 900"
+                    "Bold 700"
                 ],
                 "default": "Bold 700",
-                "description": "BDO Grotesk weight for H1 to H4, section titles, and card titles."
+                "description": "Basel Grotesk weight for H1 to H4, section titles, and card titles."
             },
             "body_font_weight": {
                 "type": "select",
@@ -40,13 +37,10 @@
                     "Light 300",
                     "Regular 400",
                     "Medium 500",
-                    "DemiBold 600",
-                    "Bold 700",
-                    "ExtraBold 800",
-                    "Black 900"
+                    "Bold 700"
                 ],
                 "default": "Regular 400",
-                "description": "BDO Grotesk weight for paragraphs, excerpts, and meta text."
+                "description": "Basel Grotesk weight for paragraphs, excerpts, and meta text."
             },
             "nav_and_button_font_weight": {
                 "type": "select",
@@ -54,13 +48,10 @@
                     "Light 300",
                     "Regular 400",
                     "Medium 500",
-                    "DemiBold 600",
-                    "Bold 700",
-                    "ExtraBold 800",
-                    "Black 900"
+                    "Bold 700"
                 ],
                 "default": "Bold 700",
-                "description": "BDO Grotesk weight for nav links, buttons, share links, and pager."
+                "description": "Basel Grotesk weight for nav links, buttons, share links, and pager."
             },
             "display_h1_size": {
                 "type": "select",

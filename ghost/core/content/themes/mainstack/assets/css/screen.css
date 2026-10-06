@@ -1,9 +1,8 @@
 /*
  * Mainstack blog shell.
- * Brand face is BDO Grotesk (Lokal Container Tipografi, SIL OFL 1.1), bundled in
- * assets/fonts (all seven weights: Light 300, Regular 400, Medium 500,
- * DemiBold 600, Bold 700, ExtraBold 800, Black 900). Licence text is
- * assets/fonts/BDOGrotesk-OFL.txt.
+ * Brand face is Basel Grotesk, bundled in assets/fonts (Light 300, Regular 400,
+ * Medium 500, Bold 700). The files are the Trial cut (letters, digits, and a
+ * few punctuation marks only); other glyphs fall back to Helvetica/Arial.
  * Weights, sizes, and heading tracking come from the --ms-weight-*, --ms-size-*,
  * and --ms-heading-tracking tokens below. partials/typography-vars.hbs
  * overrides them from the Ghost Admin custom settings (Site-wide tab).
@@ -12,63 +11,39 @@
  */
 
 @font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-Light.woff2") format("woff2");
+    font-family: "Basel Grotesk";
+    src: url("../fonts/BaselGrotesk-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-Regular.woff2") format("woff2");
+    font-family: "Basel Grotesk";
+    src: url("../fonts/BaselGrotesk-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-Medium.woff2") format("woff2");
+    font-family: "Basel Grotesk";
+    src: url("../fonts/BaselGrotesk-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-DemiBold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-Bold.woff2") format("woff2");
+    font-family: "Basel Grotesk";
+    src: url("../fonts/BaselGrotesk-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
-@font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-ExtraBold.woff2") format("woff2");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "BDO Grotesk";
-    src: url("../fonts/BDOGrotesk-Black.woff2") format("woff2");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
 :root {
-    --ms-font-sans: "BDO Grotesk", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+    --ms-font-sans: "Basel Grotesk", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
     --ms-font-mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
     --ms-text: #131316;
     --ms-text-muted: #56616b;
@@ -88,7 +63,7 @@
     --ms-product-text: #ffffff;
     --gh-font-heading: var(--ms-font-sans);
     --gh-font-body: var(--ms-font-sans);
-    /* Typography tokens. Defaults match 0.5.2; Ghost Admin settings override them. */
+    /* Typography tokens. Defaults match 0.5.1 Basel look; Ghost Admin settings override them. */
     --ms-weight-heading: 700;
     --ms-weight-body: 400;
     --ms-weight-ui: 700;
@@ -147,7 +122,7 @@ h4 {
 
 /*
  * Migrated posts wrap many headings in <strong>. Without this, "bolder"
- * pushes them to Black 900 and they ignore the heading weight setting.
+ * pushes them past Bold 700 and they ignore the heading weight setting.
  */
 :is(h1, h2, h3, h4, h5, h6) :is(strong, b) {
     font-weight: inherit;

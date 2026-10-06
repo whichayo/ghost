@@ -1,10 +1,10 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, a product-signup CTA, then Announcements and Case Studies. Videos and Webinars is built and hidden. A post has a sticky table of contents, a newsletter with horizontal socials, and You May Also Like. Theme version is `0.5.3`.
+Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, a product-signup CTA, then Announcements and Case Studies. Videos and Webinars is built and hidden. A post has a sticky table of contents, a newsletter with horizontal socials, and You May Also Like. Theme version is `0.5.4`.
 
 ## Typography
 
-All UI text uses BDO Grotesk by Lokal Container Tipografi from `assets/fonts/`. All seven weights ship as woff2: Light 300, Regular 400, Medium 500, DemiBold 600, Bold 700, ExtraBold 800, Black 900. The `@font-face` rules are at the top of `assets/css/screen.css`, and `--ms-font-sans` feeds `--gh-font-body` and `--gh-font-heading`. `default.hbs` preloads Regular and Bold; other weights load on first use. Code blocks keep the monospace stack. The files are the full release (about 660 glyphs, Latin Extended with all common punctuation), so the Helvetica/Arial fallback only shows while the font loads. BDO Grotesk is licensed under the SIL Open Font License 1.1, and the licence text ships as `assets/fonts/BDOGrotesk-OFL.txt`. The source is https://github.com/LCTipografi/BDO-Grotesk.
+All UI text uses Basel Grotesk from `assets/fonts/` (Light 300, Regular 400, Medium 500, Bold 700, woff2). The `@font-face` rules are at the top of `assets/css/screen.css`, and `--ms-font-sans` feeds `--gh-font-body` and `--gh-font-heading`. `default.hbs` preloads Regular and Bold; Medium and Light load on first use. Code blocks keep the monospace stack. The bundled files are the Basel Grotesk Trial cut: they cover A–Z, a–z, 0–9 and `' , - .` only, so other punctuation (`: ? ! ( ) & @ %` and so on) renders in the Helvetica/Arial fallback. Swap in the licensed full files under the same names when available (no CSS change needed).
 
 ### Typography settings panel
 
@@ -17,19 +17,19 @@ Weights and sizes are set in Ghost Admin, with no theme edit or zip upload:
 
 | Admin label | Key (`@custom.*`) | Options | Default | Applies to |
 | --- | --- | --- | --- | --- |
-| Heading font weight | `heading_font_weight` | Light 300 … Black 900 | Bold 700 | H1 to H4 (page titles, section titles, card titles, article headings), footer title |
-| Body font weight | `body_font_weight` | Light 300 … Black 900 | Regular 400 | Body text, excerpts, meta, inputs |
-| Nav and button font weight | `nav_and_button_font_weight` | Light 300 … Black 900 | Bold 700 | Top bar Log in / Sign up, blog nav links, mobile menu toggle, CTA and newsletter buttons, share links, pager, TOC label |
+| Heading font weight | `heading_font_weight` | Light 300, Regular 400, Medium 500, Bold 700 | Bold 700 | H1 to H4 (page titles, section titles, card titles, article headings), footer title |
+| Body font weight | `body_font_weight` | Light 300, Regular 400, Medium 500, Bold 700 | Regular 400 | Body text, excerpts, meta, inputs |
+| Nav and button font weight | `nav_and_button_font_weight` | Light 300, Regular 400, Medium 500, Bold 700 | Bold 700 | Top bar Log in / Sign up, blog nav links, mobile menu toggle, CTA and newsletter buttons, share links, pager, TOC label |
 | Display h1 size | `display_h1_size` | 36px, 40px, 48px, 60px | 48px | Homepage, tag, author, article, and error H1 (largest size; shrinks with the viewport down to two thirds of it) |
 | Section h2 size | `section_h2_size` | 20px, 22px, 24px, 28px, 32px | 22px | Homepage section headings: Featured, Latest, Announcements, Case Studies, Videos |
 | Body font size | `body_font_size` | 16px, 17px, 18px | 17px | Base text size; article body text and headings inside the article scale from it |
 | Heading letter spacing | `heading_letter_spacing` | Tight, Normal | Tight | H1 to H4. Tight is -0.02em, Normal is 0 |
 
-The weight options are the seven BDO Grotesk weights: Light 300, Regular 400, Medium 500, DemiBold 600, Bold 700, ExtraBold 800, Black 900. The defaults reproduce the 0.5.2 look. In 0.5.2 the blog nav links asked for weight 600, which rendered as Bold because DemiBold was not bundled, so the nav default is Bold 700. To get the real DemiBold nav, pick DemiBold 600.
+The weight options match the four Basel Grotesk files we ship. DemiBold / ExtraBold / Black are not available in this Trial cut, so they are not listed. A stale Admin value ending in 600, 800, or 900 maps to Bold 700.
 
 How it is wired: `screen.css` sets the defaults as tokens on `:root` (`--ms-weight-heading`, `--ms-weight-body`, `--ms-weight-ui`, `--ms-size-display`, `--ms-size-section`, `--ms-size-body`, `--ms-heading-tracking`), and the rules use those tokens. `partials/typography-vars.hbs` is included in `default.hbs` straight after `screen.css` and prints a `<style id="ms-typography-settings">` block that overrides the tokens from `@custom.*`. `partials/font-weight-value.hbs` turns an option such as `Bold 700` into `700`. A setting that is empty leaves the CSS default in place.
 
-Brand → Typography in the same Customize screen (Ghost's own heading/body font picker) replaces the font family. Leave it on **Theme default** to keep BDO Grotesk.
+Brand → Typography in the same Customize screen (Ghost's own heading/body font picker) replaces the font family. Leave it on **Theme default** to keep Basel Grotesk.
 
 ## Homepage
 
