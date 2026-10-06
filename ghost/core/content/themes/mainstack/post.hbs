@@ -1,5 +1,11 @@
 {{!< default}}
 
+{{!--
+    Article page. Title and meta sit above the cover, not on it.
+    There is no search control on the cover, no comments, no drop cap,
+    no previous/next links, and no second share row. The only share
+    actions sit under the newsletter in the rail.
+--}}
 {{#post}}
 <article class="article {{post_class}}">
     <header class="article-header">
@@ -25,13 +31,16 @@
         <section class="gh-content">
             {{content}}
         </section>
+        <aside class="article-rail">
+            {{> "newsletter"}}
+            {{> "socials"}}
+        </aside>
     </div>
 </article>
+
+{{> "related-posts"}}
 {{/post}}
 
-{{!--
-    TODO(MSC) article chrome still to come, outside this scaffold:
-    sticky newsletter CTA, horizontal share links (Facebook, X, Instagram, copy link),
-    and "You May Also Like" posts from the same tags.
-    Do not add comments, a drop cap, prev/next links, or a second share row.
---}}
+{{#contentFor "scripts"}}
+    <script src="{{asset "js/article.js"}}"></script>
+{{/contentFor}}
