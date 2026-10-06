@@ -1,0 +1,40 @@
+{{!--
+    Secondary blog bar. Smaller type than the product bar. Inline links on
+    desktop; the hamburger (data-blog-nav-toggle) shows only under 800px.
+
+    Tag archives. free-tools / free-templates / case-studies exist in Ghost.
+    comparisons and videos are intended archives; create those tags (or change
+    the hrefs) when those sections exist:
+      /tag/free-tools/
+      /tag/free-templates/
+      /tag/case-studies/
+      /tag/comparisons/
+      /tag/videos/
+
+    Mainstack University has no public blog section. mainstack.com/university
+    404s and university.mainstack.com does not resolve, so this link goes to
+    https://mainstack.com until a real destination exists.
+    This theme has no dark-mode control to keep.
+--}}
+<nav class="ms-blog-nav" data-blog-nav aria-label="Blog">
+    <div class="ms-nav-inner">
+        <a class="ms-blog-home" href="{{@site.url}}">Blog Home</a>
+        <div class="ms-blog-links" id="ms-blog-links">
+            <a href="{{@site.url}}/tag/free-tools/">Tools</a>
+            <a href="{{@site.url}}/tag/free-templates/">Templates</a>
+            <a href="{{@site.url}}/tag/case-studies/">Case Studies</a>
+            <a href="{{@site.url}}/tag/comparisons/">Comparisons</a>
+            <a href="{{@site.url}}/tag/videos/">Videos</a>
+            <a href="https://mainstack.com">Mainstack University</a>
+        </div>
+        <div class="ms-blog-tools">
+            <div class="ms-blog-search">
+                {{search}}
+            </div>
+            <button class="ms-blog-toggle" type="button" data-blog-nav-toggle aria-expanded="false" aria-controls="ms-blog-links">
+                <span class="ms-blog-toggle-bars" aria-hidden="true"></span>
+                <span class="ms-blog-toggle-label">Menu</span>
+            </button>
+        </div>
+    </div>
+</nav>

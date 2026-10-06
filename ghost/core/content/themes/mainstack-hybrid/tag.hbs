@@ -1,0 +1,19 @@
+{{!< default}}
+
+{{!--
+    Tag archive. This is the category destination: one listing page per tag,
+    with the theme pager when there is another page of posts. It is not a
+    carousel and it does not infinite-scroll.
+--}}
+{{#tag}}
+<header class="archive-header">
+    <h1>{{name}}</h1>
+    {{#if description}}
+        <p>{{description}}</p>
+    {{/if}}
+</header>
+{{/tag}}
+
+<section class="post-list" aria-label="Posts in {{tag.name}}">
+    {{> "post-feed"}}
+</section>

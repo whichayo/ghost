@@ -1,0 +1,28 @@
+{{!< default}}
+
+{{!--
+    Homepage: H1, featured, latest, signup CTA, videos (off unless
+    @custom.show_videos), then Announcements and Case Studies.
+    The H1 and subtext are theme copy, not the Ghost site title or description.
+    Those blocks render on the first homepage only. /page/2/ is the rest
+    of the latest list.
+--}}
+
+{{#is "home"}}
+<section class="home-intro">
+    <h1>The Mainstack Blog</h1>
+    <p class="home-intro-text">Guides, Conversations with Creators, Tools, Templates and everything else in between to help you monetize your knowledge.</p>
+</section>
+{{> "featured"}}
+{{/is}}
+
+<section class="post-list" aria-label="{{#is "home"}}Latest posts{{else}}Posts{{/is}}">
+    <h2 class="section-title">{{#is "home"}}Latest{{else}}Posts{{/is}}</h2>
+    {{> "post-feed"}}
+</section>
+
+{{#is "home"}}
+    {{> "home-cta"}}
+    {{> "home-videos"}}
+    {{> "home-categories"}}
+{{/is}}
