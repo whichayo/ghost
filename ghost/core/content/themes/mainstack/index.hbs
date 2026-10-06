@@ -1,21 +1,17 @@
 {{!< default}}
 
 {{!--
-    Homepage scaffold only. Later tickets fill the redesign sections:
-    featured announcements, CTA, videos, and category blocks.
-    Intended hero copy, when that ticket lands:
-    H1 "The Mainstack Blog"
-    Subheading "Guides, Conversations with Creators, Tools, Templates and everything else in between to help you monetize your knowledge."
+    Homepage hero and featured posts. Later tickets fill CTA, videos,
+    and category blocks. The H1 and subtext are theme copy, not the
+    Ghost site title or description.
 --}}
 
 {{#is "home"}}
 <section class="home-intro">
-    <h1>{{@site.title}}</h1>
-    {{#if @site.description}}
-        <p class="home-intro-text">{{@site.description}}</p>
-    {{/if}}
-    {{> "featured"}}
+    <h1>The Mainstack Blog</h1>
+    <p class="home-intro-text">Guides, Conversations with Creators, Tools, Templates and everything else in between to help you monetize your knowledge.</p>
 </section>
+{{> "featured"}}
 {{/is}}
 
 <section class="post-list" aria-label="{{#is "home"}}Latest posts{{else}}Posts{{/is}}">
