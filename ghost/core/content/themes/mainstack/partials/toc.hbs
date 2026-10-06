@@ -1,4 +1,10 @@
 {{!--
-    TODO(MSC): Sticky, clickable table of contents along the left of the article
-    on desktop. Mobile follows the same article rules without a second sidebar.
+    Filled by assets/js/article.js from h2 and h3 in .gh-content.
+    Stays hidden when the post has fewer than two headings.
+    Sticky on the left at desktop widths. On smaller screens it is a
+    scrollable list above the article, not a second sidebar.
 --}}
+<nav class="article-toc" data-toc hidden aria-label="On this page">
+    <p class="toc-title">On this page</p>
+    <ol class="toc-list" data-toc-list></ol>
+</nav>

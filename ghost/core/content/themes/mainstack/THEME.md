@@ -1,6 +1,6 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, then Announcements and Case Studies. A post is a single article. Article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, a product-signup CTA, then Announcements and Case Studies. Videos and Webinars is built and hidden. A post has a sticky table of contents, a newsletter with horizontal socials, and You May Also Like. Theme version is `0.5.0`.
 
 ## Homepage
 
@@ -30,7 +30,7 @@ On the homepage the next section is an H2, `Latest`, then the channel post list 
 
 Under 720px the excerpt is hidden. The title, author, and date stay.
 
-`/page/2/` and later keep that list and drop the homepage-only blocks (hero, featured, and the two category sections).
+`/page/2/` and later keep that list and drop the homepage-only blocks (hero, featured, CTA, videos, and the two category sections).
 
 ## Announcements and case studies
 
@@ -44,6 +44,79 @@ The slugs are migrated Ghost tags. There is no `announcements` tag on the site.
 Each block loads up to six posts, newest published first, and is left out when that tag has no published posts. The full list is the tag page (`tag.hbs`): the tag name as the H1, the tag description when it has one, then the same card grid. Further posts use the theme pager (Newer posts / Older posts). A tag with a single page does not show a pager.
 
 `partials/home-categories.hbs` is where those two slugs are set.
+
+## Homepage CTA
+
+`partials/home-cta.hbs` is a product-signup block after Latest. The button goes to `https://accounts.mainstack.com/signup` with `utm_source=MainstackBlog&utm_medium=Homepage&utm_campaign=BlogCTA`. `https://mainstack.com/signup` returns 404, so this uses the same auth host as the header.
+
+## Videos and webinars
+
+`partials/home-videos.hbs` uses the same cards as Latest (image, title, excerpt, author, date). It queries the public tag `videos` and links the heading to `/tag/videos/`.
+
+The section is off by default. `package.json` `config.custom.show_videos` is a boolean whose default is `false`, so the homepage does not render it. To show it later, no theme edit is required:
+
+1. Create the public tag **videos** if it does not exist, and tag the posts that should appear.
+2. In Ghost Admin, open **Settings → Design**.
+3. Turn on **Show videos and webinars**.
+4. Reload the homepage.
+
+Leave the toggle off until YouTube longform is ready. Uploading a new zip does not by itself turn the section on.
+
+## Article
+
+`post.hbs` keeps the title, author, and date above the cover. Nothing is painted on the image, and the cover does not include search. Comments are not rendered. Drop caps are reset in `screen.css` (including a `.drop-cap` span). There is no previous/next row and no second share row at the bottom.
+
+`assets/js/article.js` builds the table of contents from `h2` and `h3` in the post body and adds an id when a heading does not have one. The list stays hidden when there are fewer than two headings. From 1100px the list sticks on the left and the newsletter rail sticks on the right, both below the two nav bars. Narrower viewports show the list as a scrollable block above the article, then the body, then the newsletter and socials.
+
+## Newsletter and socials
+
+The rail is `partials/newsletter.hbs` plus `partials/socials.hbs`. The form is `data-members-form="subscribe"`, which Ghost Portal (from `{{ghost_head}}`) submits. Free signup has to be allowed under Ghost Admin membership settings or the form cannot complete.
+
+Socials sit on one horizontal row under that form: Facebook, X, Instagram, and Copy link. Facebook and X use `@site.facebook` and `@site.twitter` (live values `themainstack` and `@themainstack`). Instagram is `https://www.instagram.com/themainstack/` because Ghost has no Instagram setting. Copy link writes the current URL. These are the only share actions on the article.
+
+## You May Also Like
+
+`partials/related-posts.hbs` loads up to three other posts with the same primary tag, newest published first. The heading is `You May Also Like`. The block is omitted when the post has no primary tag or no other published post uses it. Previous/Next post links are not in the template.
+
+## SEO
+
+`default.hbs` prints `<title>{{meta_title}}</title>`. `{{ghost_head}}` does not print the document title. It does print the meta description, canonical URL, Open Graph tags, Twitter tags, and Article JSON-LD (publisher Organization, author, headline, dates, image). Do not add a second copy of those tags.
+
+Canonicals follow the Ghost site URL. On Railway that is `https://ghost-production-6e46.up.railway.app/...`. This theme does not point canonicals at `mainstack.com/blog`. That cutover is a separate change.
+
+Google site verification is not hardcoded. It is injected by Ghost from **Settings → Code injection** (`google-site-verification` in the head). `{{ghost_head}}` prints that injection. Removing `{{ghost_head}}` would drop verification, canonicals, and schema together.
+
+Sitemap check, against the Railway site:
+
+- `GET /sitemap.xml` returns 200 and lists the child sitemaps.
+- `GET /sitemap-posts.xml` returns 200 and lists post URLs on the Railway host.
+- `GET /sitemap-tags.xml` returns 200 and lists tag URLs, including `/tag/case-studies/` and `/tag/company-announcements/`.
+
+Some migrated posts store a short custom meta title. `og:title` and the document title both use that field, while the visible H1 is the full post title. Example: the H1 "Everything You Need to Know About Mainstack as a New Creator" has meta title "Mainstack: The All-In-One Platform to Sell & Get P". Edit **Post settings → Meta data** to replace a truncated title. The theme does not override a title an editor saved.
+
+## QA checklist
+
+Run this after the `0.5.0` zip is activated on Railway. Desktop is about 1280px wide. Mobile is about 390px wide.
+
+Homepage, desktop and mobile:
+
+- [ ] Product bar and blog bar both stay sticky while scrolling. The mobile blog menu still opens under 800px.
+- [ ] H1 is "The Mainstack Blog", with the guides subtext under it.
+- [ ] Featured, when a post is featured, shows the image then the title, author, and date.
+- [ ] Latest is an H2. Cards in a row share a height. Gaps between cards match. Mobile cards show title, author, and date, and hide the excerpt.
+- [ ] Get started CTA is visible and opens `accounts.mainstack.com/signup` with `utm_campaign=BlogCTA`.
+- [ ] Videos and Webinars is not on the page while **Show videos and webinars** is off.
+- [ ] Announcements links to `/tag/company-announcements/`. Case Studies links to `/tag/case-studies/`. Each tag page lists posts and does not show "Page 1 of 1".
+
+Article, desktop and mobile:
+
+- [ ] Title and author/date are above the cover, not on it. No search control sits on the cover.
+- [ ] On this page lists H2/H3 links and sticks on the left from 1100px. On a phone it sits above the body and scrolls inside its box.
+- [ ] Subscribe is present. On a wide screen it sticks on the right. Facebook, X, Instagram, and Copy link sit on one row under it. There is no second share row at the bottom.
+- [ ] No comment thread and no drop cap on the first paragraph.
+- [ ] You May Also Like shows related cards. Previous and Next are absent.
+- [ ] View source has one `<title>`, a meta description, `og:title`, `og:description`, a canonical on the Railway host, Article JSON-LD, and the Google site verification meta.
+- [ ] `/sitemap.xml` returns 200.
 
 ## Navigation
 

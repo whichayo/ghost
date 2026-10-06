@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{!-- Document title. ghost_head does not print <title>. It does print
+         description, canonical, Open Graph, Twitter, JSON-LD, and the
+         site's code injection (including Google site verification). --}}
+    <title>{{meta_title}}</title>
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}">
     {{ghost_head}}
 </head>
@@ -14,6 +18,7 @@
     </main>
     {{> "footer"}}
     <script src="{{asset "js/nav.js"}}"></script>
+    {{{block "scripts"}}}
     {{ghost_foot}}
 </body>
 </html>

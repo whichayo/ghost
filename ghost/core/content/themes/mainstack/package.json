@@ -1,7 +1,7 @@
 {
     "name": "mainstack",
     "description": "Mainstack blog theme. Clean sans-serif shell for the Ghost 5 site.",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -18,7 +18,15 @@
     ],
     "config": {
         "posts_per_page": 12,
-        "card_assets": true
+        "card_assets": true,
+        "custom": {
+            "show_videos": {
+                "type": "boolean",
+                "default": false,
+                "group": "homepage",
+                "description": "Show the homepage Videos and Webinars section. Leave off until YouTube longform is ready."
+            }
+        }
     },
     "scripts": {
         "zip": "python3 zip-theme.py"

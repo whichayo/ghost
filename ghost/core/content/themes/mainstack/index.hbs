@@ -1,11 +1,11 @@
 {{!< default}}
 
 {{!--
-    Homepage: H1, featured posts, latest posts, then Announcements and
-    Case Studies. CTA and videos stay out of this template.
+    Homepage: H1, featured, latest, signup CTA, videos (off unless
+    @custom.show_videos), then Announcements and Case Studies.
     The H1 and subtext are theme copy, not the Ghost site title or description.
-    Category blocks render on the first homepage only. /page/2/ is the
-    rest of the latest list.
+    Those blocks render on the first homepage only. /page/2/ is the rest
+    of the latest list.
 --}}
 
 {{#is "home"}}
@@ -22,5 +22,7 @@
 </section>
 
 {{#is "home"}}
+    {{> "home-cta"}}
+    {{> "home-videos"}}
     {{> "home-categories"}}
 {{/is}}

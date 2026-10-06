@@ -1,0 +1,16 @@
+{{!--
+    Sticky with the rail on desktop (see .article-rail). Ghost Portal,
+    loaded by {{ghost_head}}, submits forms marked data-members-form.
+    Free membership signup must be allowed in Ghost Admin.
+--}}
+<section class="article-newsletter" aria-labelledby="newsletter-heading">
+    <h2 id="newsletter-heading">Subscribe</h2>
+    <p>New guides for selling what you know, in your inbox.</p>
+    <form class="newsletter-form" data-members-form="subscribe">
+        <label class="newsletter-label" for="newsletter-email">Email</label>
+        <input id="newsletter-email" data-members-email type="email" required placeholder="you@example.com" autocomplete="email">
+        <button type="submit">Subscribe</button>
+        <p class="newsletter-message newsletter-success">Thanks. Check your inbox to confirm.</p>
+        <p class="newsletter-message newsletter-error">Could not subscribe. Try again.</p>
+    </form>
+</section>
