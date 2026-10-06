@@ -1,0 +1,40 @@
+{{!--
+    Homepage category blocks. Same cards as Latest. Each heading links to
+    the tag archive, which is a normal listing page (tag.hbs), not a carousel.
+
+    Slugs are migrated Ghost tags. There is no "announcements" tag.
+      Announcements → company-announcements (tag name: Company Announcements)
+      Case Studies  → case-studies
+
+    Up to six posts, newest published first. The block is omitted when
+    that tag has no published posts.
+--}}
+{{#get "posts" filter="tag:company-announcements" limit="6" include="authors" order="published_at desc" as |categoryPosts|}}
+    {{#match categoryPosts.length ">" 0}}
+    <section class="post-list" aria-labelledby="announcements-heading">
+        <h2 id="announcements-heading" class="section-title">
+            <a href="{{@site.url}}/tag/company-announcements/">Announcements</a>
+        </h2>
+        <div class="post-feed">
+            {{#foreach categoryPosts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </section>
+    {{/match}}
+{{/get}}
+
+{{#get "posts" filter="tag:case-studies" limit="6" include="authors" order="published_at desc" as |categoryPosts|}}
+    {{#match categoryPosts.length ">" 0}}
+    <section class="post-list" aria-labelledby="case-studies-heading">
+        <h2 id="case-studies-heading" class="section-title">
+            <a href="{{@site.url}}/tag/case-studies/">Case Studies</a>
+        </h2>
+        <div class="post-feed">
+            {{#foreach categoryPosts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </section>
+    {{/match}}
+{{/get}}

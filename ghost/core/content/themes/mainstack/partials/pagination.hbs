@@ -1,3 +1,6 @@
+{{!-- A single page is the whole list. Skip the pager so a short tag
+     archive does not show "Page 1 of 1". --}}
+{{#match pages ">" 1}}
 <nav class="pagination" aria-label="Pagination">
     {{#if prev}}
         <a href="{{page_url prev}}">Newer posts</a>
@@ -7,3 +10,4 @@
         <a href="{{page_url next}}">Older posts</a>
     {{/if}}
 </nav>
+{{/match}}

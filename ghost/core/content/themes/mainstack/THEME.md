@@ -1,6 +1,6 @@
 # Mainstack theme
 
-Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, and featured posts, then the post list. A post is a single article. Article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
+Ghost 5 theme shell for the Mainstack blog. The homepage opens with an H1, subtext, featured posts, latest posts, then Announcements and Case Studies. A post is a single article. Article table of contents, newsletter, and related posts are stubbed in partials for later tickets.
 
 ## Homepage
 
@@ -24,6 +24,27 @@ No theme edit and no zip upload. In Ghost Admin:
 
 Reload the homepage and the post is in Featured. Turn the toggle off to remove it.
 
+## Latest posts
+
+On the homepage the next section is an H2, `Latest`, then the channel post list (`posts_per_page` is 12). Cards use one grid: one column under 720px, two columns from there, three from 1020px. Each card stretches to the row height and the author and date sit on the bottom edge, so the gap between rows stays even when titles and excerpts wrap to different lengths.
+
+Under 720px the excerpt is hidden. The title, author, and date stay.
+
+`/page/2/` and later keep that list and drop the homepage-only blocks (hero, featured, and the two category sections).
+
+## Announcements and case studies
+
+These two blocks use the same cards as Latest. They are not a carousel. Each heading is a link to the tag archive.
+
+The slugs are migrated Ghost tags. There is no `announcements` tag on the site.
+
+- Announcements → `/tag/company-announcements/` (tag name: Company Announcements)
+- Case Studies → `/tag/case-studies/`
+
+Each block loads up to six posts, newest published first, and is left out when that tag has no published posts. The full list is the tag page (`tag.hbs`): the tag name as the H1, the tag description when it has one, then the same card grid. Further posts use the theme pager (Newer posts / Older posts). A tag with a single page does not show a pager.
+
+`partials/home-categories.hbs` is where those two slugs are set.
+
 ## Navigation
 
 `default.hbs` loads two sticky bars from `partials/header.hbs`.
@@ -35,12 +56,12 @@ The top bar is the Mainstack product chrome (dark). The wordmark goes to https:/
 
 `https://mainstack.com/signup` returns 404. The signup button uses the live auth host, which keeps the UTM query string.
 
-The blog bar sits under the product bar and stays visible with it (`--ms-sticky-nav-offset` is both heights, and `scroll-padding-top` uses that so anchors clear the bars). Blog Home points at `{{@site.url}}`. The other links are tag archives that are not created yet:
+The blog bar sits under the product bar and stays visible with it (`--ms-sticky-nav-offset` is both heights, and `scroll-padding-top` uses that so anchors clear the bars). Blog Home points at `{{@site.url}}`. The other links are tag archives:
 
-- Tools and Templates → `/tag/tools-and-templates/`
-- Case Studies → `/tag/case-studies/`
-- Comparisons → `/tag/comparisons/`
-- Videos → `/tag/videos/`
+- Tools and Templates → `/tag/tools-and-templates/` (tag not created yet)
+- Case Studies → `/tag/case-studies/` (migrated tag; also the homepage section)
+- Comparisons → `/tag/comparisons/` (tag not created yet)
+- Videos → `/tag/videos/` (tag not created yet)
 
 Mainstack University has no public section (`/university` 404s), so that item links to https://mainstack.com until a real URL exists. Desktop shows the links inline. The hamburger is mobile only (under 800px). Search is the Ghost `{{search}}` button, which `{{ghost_head}}` wires up. There is no dark-mode toggle in this theme.
 

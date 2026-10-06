@@ -1,9 +1,11 @@
 {{!< default}}
 
 {{!--
-    Homepage hero and featured posts. Later tickets fill CTA, videos,
-    and category blocks. The H1 and subtext are theme copy, not the
-    Ghost site title or description.
+    Homepage: H1, featured posts, latest posts, then Announcements and
+    Case Studies. CTA and videos stay out of this template.
+    The H1 and subtext are theme copy, not the Ghost site title or description.
+    Category blocks render on the first homepage only. /page/2/ is the
+    rest of the latest list.
 --}}
 
 {{#is "home"}}
@@ -18,3 +20,7 @@
     <h2 class="section-title">{{#is "home"}}Latest{{else}}Posts{{/is}}</h2>
     {{> "post-feed"}}
 </section>
+
+{{#is "home"}}
+    {{> "home-categories"}}
+{{/is}}
